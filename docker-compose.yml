@@ -19,6 +19,9 @@ services:
     image: "influxdb:${INFLUXDB_VERSION}"
     container_name: influxdata-influxdb
     restart: unless-stopped
+    networks:
+      - external
+      - internal
     volumes:
       - ./data/influxdb:/var/lib/influxdb
     ports:
@@ -28,6 +31,9 @@ services:
     image: "chronograf:${CRONOGRAF_VERSION}"
     container_name: influxdata-chronograf
     restart: unless-stopped
+    networks:
+      - external
+      - internal    
     environment:
       INFLUXDB_URL: http://influxdb:8086
       KAPACITOR_URL: http://kapacitor:9092
@@ -53,6 +59,9 @@ services:
     image: "grafana/grafana:${GRAFANA_VERSION}"
     container_name: ruuvi-grafana
     restart: unless-stopped
+    networks:
+      - external
+      - internal
     ports:
       - "3000:3000"
     volumes:
@@ -61,3 +70,8 @@ services:
       #- grafana-data:/var/lib/grafana
       - ./data/grafana:/var/lib/grafana
 
+networks:
+  external: 
+    external: true
+  internal:
+    external: false
