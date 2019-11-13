@@ -56,9 +56,8 @@ services:
     ports:
       - "3000:3000"
     volumes:
-#      - ./config/grafana/grafana.ini:/etc/grafana/grafana.ini:ro
+      #- ./config/grafana/grafana.ini:/etc/grafana/grafana.ini:ro
       - ./config/grafana/provisioning/datasources/datasource.yaml:/etc/grafana/provisioning/datasources/datasource.yaml:ro
-      - grafana-data:/var/lib/grafana     
+      #- grafana-data:/var/lib/grafana
+      - ./data/grafana:/var/lib/grafana
 
-volumes:
-  grafana-data:
