@@ -57,7 +57,7 @@ services:
   # Define a service using Grafana
   grafana:
     image: "grafana/grafana:${GRAFANA_VERSION}"
-    container_name: ruuvi-grafana
+    container_name: influxdata-grafana
     restart: unless-stopped
     networks:
       - external
