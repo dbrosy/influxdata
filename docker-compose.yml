@@ -68,7 +68,7 @@ services:
       #- ./config/grafana/grafana.ini:/etc/grafana/grafana.ini:ro
       - ./config/grafana/provisioning/datasources/datasource.yaml:/etc/grafana/provisioning/datasources/datasource.yaml:ro
       #- grafana-data:/var/lib/grafana
-      # permissions required: chmod 777 ./data/grafana
+      # permissions required: sudo chmod 777 ./data/grafana
       - ./data/grafana:/var/lib/grafana
 
 networks:
